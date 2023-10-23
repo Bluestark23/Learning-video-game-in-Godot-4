@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://btwq0yg3dkaws"]
+
+[ext_resource type="Script" path="res://Cofre.gd" id="1_vqjpx"]
+[ext_resource type="Texture2D" uid="uid://cjl0pldhrxt37" path="res://art/Background/Cofre.png" id="2_osmya"]
+[ext_resource type="PackedScene" uid="uid://l5s86ku2ddkg" path="res://Interaction/Interaction_area/interaction_area.tscn" id="3_rxlh8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8jfim"]
+radius = 40.0125
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyqa0"]
+size = Vector2(17.7778, 8)
+
+[node name="Cofre" type="StaticBody2D"]
+script = ExtResource("1_vqjpx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 4)
+scale = Vector2(3.34375, 2.875)
+texture = ExtResource("2_osmya")
+hframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="InteractionArea" parent="." instance=ExtResource("3_rxlh8")]
+position = Vector2(1, -1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_8jfim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.999999, 5.5)
+scale = Vector2(2.25, 1.875)
+shape = SubResource("RectangleShape2D_lyqa0")
